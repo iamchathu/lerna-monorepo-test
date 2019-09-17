@@ -12,8 +12,7 @@
       "packages/*"
     ],
     "nohoist": [
-      "react-ui/jest",
-      "react-ui/**/jest"
+      "**/jest"
     ]
   },
   "scripts": {
