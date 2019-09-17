@@ -5,12 +5,19 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Jest Tests",
+      "name": "Backend",
       "type": "node",
       "request": "launch",
-      "runtimeArgs": ["--inspect-brk", "${workspaceRoot}/node_modules/.bin/jest", "--runInBand"],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen"
+      "address": "localhost",
+      "protocol": "inspector",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/lerna",
+      "runtimeArgs": ["exec", "--scope", "IgniteTSExpress", "--", "node"],
+      "args": [
+        "${workspaceRoot}/node_modules/jest/bin/jest.js",
+        "--runInBand", // https://facebook.github.io/jest/docs/en/cli.html#runinband - don't parallelize
+        "--no-cache", // https://facebook.github.io/jest/docs/en/cli.html#cache - just avoid caching issues
+        "packages/IgniteTSExpress" // from monorepo root
+      ]
     }
   ]
 }
