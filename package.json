@@ -1,6 +1,11 @@
 {
   "name": "lerna-monorepo-test",
   "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna clean",
+    "docker:build": "docker build -t iamchathu/react-ui -f ./packages/react-ui/Dockerfile ."
+  },
   "devDependencies": {
     "husky": "^3.0.5",
     "lerna": "^3.16.4",
@@ -14,9 +19,5 @@
     "nohoist": [
       "**/jest"
     ]
-  },
-  "scripts": {
-    "bootstrap": "lerna bootstrap",
-    "clean": "lerna clean"
   }
 }
