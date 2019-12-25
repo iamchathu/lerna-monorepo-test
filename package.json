@@ -7,10 +7,10 @@
     "docker:build": "docker build -t iamchathu/react-ui -f ./packages/react-ui/Dockerfile ."
   },
   "devDependencies": {
-    "husky": "^3.0.5",
-    "lerna": "^3.16.4",
-    "lint-staged": "^9.2.5",
-    "prettier": "^1.18.2"
+    "husky": "^3.1.0",
+    "lerna": "^3.19.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1"
   },
   "workspaces": {
     "packages": [

@@ -10,23 +10,41 @@
     "SharedArrayBuffer": "readonly"
   },
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "import", "jest"],
+  "plugins": ["@typescript-eslint", "import", "jest", "prettier"],
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": 2019,
     "sourceType": "module"
   },
-  "rules": { "no-console": "off", "@typescript-eslint/indent": ["error", 2] },
+  "rules": {
+    "no-console": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+  },
   "settings": {
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
     "import/parsers": {
       "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "import/resolver": {
-      "typescript": {}
+      "alias": true,
+      "node": true,
+      "typescript": {
+        "alwaysTryTypes": true,
+        "extensions": [".ts", ".tsx"]
+      }
     }
   },
   "overrides": [
     {
-      "files": ["src/**/*.spec.ts"],
+      "files": ["src/**/*.spec.ts", "src/**/*.test.ts"],
       "rules": {
         "import/no-extraneous-dependencies": [
           "error",
